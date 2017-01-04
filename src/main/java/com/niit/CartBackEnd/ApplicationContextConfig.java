@@ -13,12 +13,16 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.CartBackEnd.dao.UserDAO;
+import com.niit.CartBackEnd.daoimpl.UserDAOImpl;
+import com.niit.CartBackEnd.model.User;
+
 
 
 
 
 @Configuration
-@ComponentScan("com.niit.cartbackend")
+@ComponentScan("com.niit.CartBackEnd")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 
@@ -51,7 +55,7 @@ public class ApplicationContextConfig {
 		public SessionFactory getSessionFactory(DataSource dataSource) {
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
-					
+		    sessionBuilder.addAnnotatedClasses(User.class);
 			System.out.println("Session");
 			
 			return sessionBuilder.buildSessionFactory();
@@ -65,6 +69,10 @@ public class ApplicationContextConfig {
 			System.out.println("Transaction");
 			return transactionManager;
 		}
-	
-				
-						}
+		/*@Autowired
+		@Bean(name = "userDAO")
+		public UserDAO getUserDao(SessionFactory sessionFactory){
+					return  new UserDAOImpl(sessionFactory);
+		}*/
+			
+}

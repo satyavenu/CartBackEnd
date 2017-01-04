@@ -1,6 +1,7 @@
 package com.niit.CartBackEnd.model;
-import javax.ejb.EJB;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -12,8 +13,10 @@ import javax.persistence.Id;
 @Entity
 @Table          //if the table name and domine object is same
 @Component
-
 public class User {
+	@Id
+	@GeneratedValue
+	@Column
 	//what are the properties same as database table fields
 	private String id; 
 
