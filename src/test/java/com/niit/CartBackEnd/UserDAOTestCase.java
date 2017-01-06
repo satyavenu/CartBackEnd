@@ -29,7 +29,7 @@ public class UserDAOTestCase {
 	public static void  init()
 	{
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.niit");
+		context.scan("com.niit.CartBackEnd");
 		
 		context.refresh();
 		 user=(User)context.getBean("user");
@@ -61,8 +61,18 @@ public class UserDAOTestCase {
 	
 	Assert.assertEquals("length check",8,size);
 	}
-	
-	
-	
-	
+
+
+@Test	
+public void saveTestCase()
+{
+	user.setId("1097");
+	user.setName("pallavi");
+	user.setPassword("satya");
+	user.setMobile("8106393169");
+	user.setRole("role_user");
+	user.setContact("hyd");
+	user.setMail("satyaveni@gmail.com");
+	Assert.assertEquals("saveTestCase",true, userDAO.save(user));
+}
 }

@@ -1,9 +1,7 @@
 package com.niit.CartBackEnd.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Id;
@@ -15,20 +13,22 @@ import javax.persistence.Id;
 @Component
 public class User {
 	@Id
-	@GeneratedValue
-	@Column
-	//what are the properties same as database table fields
+
+	//what are the properties same as database table fieldsuser.setId("1096");
+	
 	private String id; 
 
 	private String name; 
 	
 	private String password; 
 	
-	private String mail; 
+	private String Mobile;
+	
+	private String Role; 
 	
 	private String contact; 
 	
-	private String role;
+	private String Mail;
 
 	public String getId() {
 		return id;
@@ -53,15 +53,23 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getMail() {
-		return mail;
+	public String getMobile() {
+		return Mobile;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setMobile(String Mobile) {
+		this.Mobile = Mobile;
 	}
 
+	
+
+	public String getRole() {
+		return Role;
+	}
+
+	public void setRole(String role) {
+		this.Role = role;
+	} 
 	public String getContact() {
 		return contact;
 	}
@@ -70,12 +78,12 @@ public class User {
 		this.contact = contact;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	} 
 	
+public String getMail() {
+	return Mail;
 }
+
+public void setMail(String mail) {
+	this.Mail = mail;
+}}
+
