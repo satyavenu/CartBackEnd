@@ -19,7 +19,7 @@ public class Category {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String string, int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -33,5 +33,9 @@ public class Category {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public void setId(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }

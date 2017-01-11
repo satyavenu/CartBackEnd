@@ -5,20 +5,19 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.CartBackEnd.dao.ProductDAO;
-import com.niit.CartBackEnd.model.Product;
+import com.niit.CartBackEnd.dao.SupplierDAO;
+import com.niit.CartBackEnd.dao.UserDAO;
+import com.niit.CartBackEnd.model.Supplier;
 import com.niit.CartBackEnd.model.User;
 
 import junit.framework.Assert;
 
 @SuppressWarnings({ "unused", "deprecation" })
-public class ProductDAOTestCase {
-	
+public class SupplierTestCase {
 	@Autowired
-	 static  ProductDAO productDAO;
-	
+	 static SupplierDAO supplierDAO;
 	@Autowired
-	 static Product product;
+	 static Supplier supplier;
 	
 	@Autowired
 	static	AnnotationConfigApplicationContext context;
@@ -30,24 +29,23 @@ public class ProductDAOTestCase {
 		context.scan("com.niit.scartbackend");
 		context.refresh();
 		
-		product=(Product)context.getBean("product");
-		productDAO=(ProductDAO)context.getBean("productDAOImpl");
+		supplier=(Supplier)context.getBean("supplier");
+		supplierDAO=(SupplierDAO)context.getBean("supplierDAOImpl");
 		
 	}
-	  
+	
 	
 @Test
 	public void saveTestCase()
 	{
-	product.setId("101");
-	product.setName("mobile");
-	product.setDescription("");
-	product.setCategoryid("101");
-	product.setSupplier_id("102");
-	product.setPrice("8000");
-	product.setDescription("Mobiles");
+		supplier.setId("101");
+		supplier.setName("satya");
+		supplier.setAddress("hyd");
 		
-	Assert.assertEquals("save Test Case",true,productDAO.save(product));
+	Assert.assertEquals("save Test Case",true,supplierDAO.save(supplier));
 	}
 
-}
+	
+		
+
+	}

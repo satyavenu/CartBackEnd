@@ -16,13 +16,16 @@ public class Product {
 	private int id;
 	private String name;
 	private String description;
-	private int categoryid;
+	private int category_id;
 	private int supplierid;
+	@SuppressWarnings("unused")
+	private int price;
+	private int categoryid;
 	
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String string, int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -50,5 +53,34 @@ public class Product {
 	public void setSupplierid(int supplierid)
 	{
 		this.supplierid = supplierid;
+	}
+	public int getprice() {
+		return supplierid;
+	}
+	public void setPrice(int price)
+	{
+		this.price = price;
+	}
+	public void setCategoryid(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setSupplier_id(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setPrice(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+	public void setId(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 }

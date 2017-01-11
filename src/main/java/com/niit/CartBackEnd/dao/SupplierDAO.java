@@ -11,10 +11,12 @@ public interface SupplierDAO {
 	public User get(String id);
 
 	
-		public boolean save(Supplier supplier);
+		
 		public boolean delete(int id);
 
 		public Supplier get(int id);
+
+		public boolean save(com.niit.CartBackEnd.model.Supplier supplier);
 
 		
 	

@@ -36,6 +36,10 @@ public class Supplier {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public void setId(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
