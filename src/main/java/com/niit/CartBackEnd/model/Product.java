@@ -7,10 +7,12 @@ import javax.persistence.Table;
 
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 @Table
 @Entity
 @Component
 public class Product {
+private static final MultipartFile Name = null;
 @Id
 @GeneratedValue
 	private int id;
@@ -28,8 +30,8 @@ public class Product {
 	public void setId(String string, int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public MultipartFile getName() {
+		return Name;
 	}
 	public void setName(String name) {
 		this.name = name;

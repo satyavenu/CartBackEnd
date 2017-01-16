@@ -16,4 +16,6 @@ public interface UserDAO {
 
 	public boolean update(User user);
 
+	public boolean saveOrUpdate(User user);
+
 }

@@ -26,12 +26,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Transactional
 	public boolean save(Product product) {
 		try {
-			log.debug("Save method Is Starting...........S......! ");
+			log.debug("Save method Is Starting");
 			sessionFactory.getCurrentSession().save(product);
-			log.debug("Save Method is Ending.........S.......!");
+			log.debug("Save Method is Ending");
 			return true;
 		} catch (Exception e) {
-			log.info("Exception Occureing save Method....S......!" + e.getMessage());
+			log.info("Exception Occureing save Method" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -41,13 +41,13 @@ public class ProductDAOImpl implements ProductDAO {
 	public boolean update(Product product) {
 
 		try {
-			log.debug("Update method Is Starting..........U.......! ");
+			log.debug("Update method Is Starting ");
 			sessionFactory.getCurrentSession().save(product);
-			log.debug("update Method is Ending.........U.......!");
+			log.debug("update Method is Ending");
 			return true;
 
 		} catch (Exception e) {
-			log.info("Exception Occureing Update Method......U.....!" + e.getMessage());
+			log.info("Exception Occureing Update Method" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -56,12 +56,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Transactional
 	public boolean delete(Product product) {
 		try {
-			log.debug("Delete method Is Starting..........D.......! ");
+			log.debug("Delete method Is Starting ");
 			sessionFactory.getCurrentSession().save(product);
-			log.debug("Delete Method is Ending.........D.......!");
+			log.debug("Delete Method is Ending");
 			return true;
 		} catch (Exception e) {
-			log.info("Exception Occureing Delete Method......D.....!" + e.getMessage());
+			log.info("Exception Occureing Delete Method" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -80,6 +80,11 @@ public class ProductDAOImpl implements ProductDAO {
 	public boolean saveOrUpdate(Product product) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public Object get(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

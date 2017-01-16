@@ -27,7 +27,7 @@ public class ProductDAOTestCase {
 	public static void init()
 	{
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit.scartbackend");
+		context.scan("com.niit.CartBackEnd");
 		context.refresh();
 		
 		product=(Product)context.getBean("product");
@@ -42,7 +42,7 @@ public class ProductDAOTestCase {
 	product.setId("101");
 	product.setName("mobile");
 	product.setDescription("");
-	product.setCategoryid("101");
+	product.setCategoryid("111");
 	product.setSupplier_id("102");
 	product.setPrice("8000");
 	product.setDescription("Mobiles");

@@ -26,7 +26,7 @@ public class CategoryDAOTestCase {
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.niit.scartbackend");
+		context.scan("com.niit.CartBackEnd");
 		context.refresh();
 
 		category = (Category) context.getBean("category");

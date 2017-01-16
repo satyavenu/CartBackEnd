@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
+@SuppressWarnings("deprecation")
 @Repository
 public class UserDAOImpl implements UserDAO
 {
@@ -66,6 +67,11 @@ public class UserDAOImpl implements UserDAO
 			return false;
 		}
 		return true;
+	}
+
+	public boolean saveOrUpdate(User user) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

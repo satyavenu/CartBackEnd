@@ -69,4 +69,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public boolean delete(Category category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean saveorupdate(Category category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

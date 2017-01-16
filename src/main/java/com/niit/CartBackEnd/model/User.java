@@ -85,5 +85,10 @@ public String getMail() {
 
 public void setMail(String mail) {
 	this.Mail = mail;
+}
+
+public void setEnabled(boolean b) {
+	// TODO Auto-generated method stub
+	
 }}
 

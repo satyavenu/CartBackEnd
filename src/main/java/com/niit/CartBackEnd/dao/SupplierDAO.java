@@ -12,11 +12,14 @@ public interface SupplierDAO {
 
 	
 		
-		public boolean delete(int id);
+		public boolean delete(com.niit.CartBackEnd.model.Supplier supplier);
 
+		@SuppressWarnings("rawtypes")
 		public Supplier get(int id);
 
 		public boolean save(com.niit.CartBackEnd.model.Supplier supplier);
+
+		public void saveOrUpdate(com.niit.CartBackEnd.model.Supplier supplier);
 
 		
 	

@@ -10,8 +10,10 @@ public interface CategoryDAO {
 	public List<Category> list();
 	
 	public boolean save(Category category);
-	public boolean delete(int id);
+	public boolean delete(Category category);
 	public Category get(int id);
+
+	public boolean saveorupdate(Category category);
 
 	
 }

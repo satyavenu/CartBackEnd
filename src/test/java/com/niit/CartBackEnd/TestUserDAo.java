@@ -19,7 +19,7 @@ public class TestUserDAo {
 	   {
 		   
 		   context=new AnnotationConfigApplicationContext();
-		   context.scan("com.niit.scartbackend");
+		   context.scan("com.niit.CartBackEnd");
 		   
 		   context.refresh();
 		   

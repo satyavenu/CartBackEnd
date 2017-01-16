@@ -83,4 +83,9 @@ public class SupplierDAOImpl implements SupplierDAO{
 	
 		return null;
 	}
+
+	public void saveOrUpdate(Supplier supplier) {
+		// TODO Auto-generated method stub
+		
+	}
 }
