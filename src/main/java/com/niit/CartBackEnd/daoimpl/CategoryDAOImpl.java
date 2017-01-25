@@ -1,10 +1,13 @@
+
 package com.niit.CartBackEnd.daoimpl;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,61 +25,101 @@ public class CategoryDAOImpl implements CategoryDAO {
 	private SessionFactory sessionFactory;
 
 	public CategoryDAOImpl(SessionFactory sessionFactory) {
-		super();
+	
 		this.sessionFactory = sessionFactory;
 	}
 
 	@Transactional
-	public boolean save(Category category) {
+	public boolean saveorupdate(Category category) {
 		try {
-			log.debug("Save method Is Starting ");
-			sessionFactory.getCurrentSession().save(category);
-			log.debug("Save Method is Ending");
+			log.debug("Save method Is Starting...........S......! ");
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
+			log.debug("Save Method is Ending.........S.......!");
 			return true;
 		} catch (Exception e) {
-			log.info("Exception Occureing save Method" + e.getMessage());
+			log.info("Exception Occureing save Method....S......!" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	@Transactional
+	/*@Transactional
 	public boolean update(Category category) {
 		try {
-			log.debug("Update method Is Starting ");
+			log.debug("Update method Is Starting..........U.......! ");
 			sessionFactory.getCurrentSession().save(category);
-			log.debug("update Method is Ending");
+			log.debug("update Method is Ending.........U.......!");
 			return true;
-
 		} catch (Exception e) {
-			log.info("Exception Occureing Update Method" + e.getMessage());
+			log.info("Exception Occureing Update Method......U.....!" + e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}*/
+
+	@Transactional
+	public boolean delete(Category category) {
+		try {
+			log.debug("Delete method Is Starting..........D.......! ");
+			sessionFactory.getCurrentSession().delete(category);
+			log.debug("Delete Method is Ending.........D.......!");
+			return true;
+		} catch (Exception e) {
+			log.info("Exception Occureing Delete Method......D.....!" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 	}
 
+/*	@Transactional
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql ="from Category";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
 	}
-
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	@Transactional
 	public Category get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "from Category where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Category>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}*/
+	@Transactional
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public  Category get(int id){
+		
+		String hql = "from Category where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Category>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Transactional
+	public  List<Category> list(){
+		
+		String hql ="from Category";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	return query.list();
 	}
 
-	public boolean delete(Category category) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	public boolean saveorupdate(Category category) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+
+
 }

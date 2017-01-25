@@ -11,7 +11,6 @@ import com.niit.CartBackEnd.model.User;
 
 import junit.framework.Assert;
 
-@SuppressWarnings({ "unused", "deprecation" })
 public class ProductDAOTestCase {
 	
 	@Autowired
@@ -39,15 +38,14 @@ public class ProductDAOTestCase {
 @Test
 	public void saveTestCase()
 	{
-	product.setId("101");
 	product.setName("mobile");
-	product.setDescription("");
-	product.setCategoryid("111");
-	product.setSupplier_id("102");
-	product.setPrice("8000");
-	product.setDescription("Mobiles");
+	product.setDescription("mobile");
+	product.setCategory_id(10);
+	product.setSupplier_id(10);
+	product.setPrice(100000);
+	product.setDescription("mobile sale");
 		
-	Assert.assertEquals("save Test Case",true,productDAO.save(product));
+	Assert.assertEquals("save Test Case",true,productDAO.saveOrUpdate(product));
 	}
 
 }

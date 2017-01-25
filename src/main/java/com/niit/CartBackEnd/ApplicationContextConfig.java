@@ -13,8 +13,17 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.CartBackEnd.dao.CategoryDAO;
+import com.niit.CartBackEnd.dao.ProductDAO;
+import com.niit.CartBackEnd.dao.SupplierDAO;
 import com.niit.CartBackEnd.dao.UserDAO;
+import com.niit.CartBackEnd.daoimpl.CategoryDAOImpl;
+import com.niit.CartBackEnd.daoimpl.ProductDAOImpl;
+import com.niit.CartBackEnd.daoimpl.SupplierDAOImpl;
 import com.niit.CartBackEnd.daoimpl.UserDAOImpl;
+import com.niit.CartBackEnd.model.Category;
+import com.niit.CartBackEnd.model.Product;
+import com.niit.CartBackEnd.model.Supplier;
 import com.niit.CartBackEnd.model.User;
 
 
@@ -56,6 +65,9 @@ public class ApplicationContextConfig {
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
 		    sessionBuilder.addAnnotatedClasses(User.class);
+		    sessionBuilder.addAnnotatedClasses(Supplier.class);
+		    sessionBuilder.addAnnotatedClasses(Product.class);
+		    sessionBuilder.addAnnotatedClasses(Category.class);
 			System.out.println("Session");
 			
 			return sessionBuilder.buildSessionFactory();
@@ -69,10 +81,28 @@ public class ApplicationContextConfig {
 			System.out.println("Transaction");
 			return transactionManager;
 		}
-		/*@Autowired
+		@Autowired
 		@Bean(name = "userDAO")
 		public UserDAO getUserDao(SessionFactory sessionFactory){
 					return  new UserDAOImpl(sessionFactory);
-		}*/
+		}
+		
+		@Autowired
+		@Bean(name = "supplierDAO")
+		public SupplierDAO getsupplierDao(SessionFactory sessionFactory){
+					return  new SupplierDAOImpl(sessionFactory);
+		}
+				
+		
+		@Autowired
+		@Bean(name = "categoryDAO")
+		public CategoryDAO getcategoryDao(SessionFactory sessionFactory){
+					return  new CategoryDAOImpl(sessionFactory);
+		}
+		@Autowired
+		@Bean(name = "productDAO")
+		public ProductDAO getproductDao(SessionFactory sessionFactory){
+					return  new ProductDAOImpl(sessionFactory);
+		}
 			
 }

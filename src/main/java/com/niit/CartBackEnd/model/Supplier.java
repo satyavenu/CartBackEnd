@@ -1,22 +1,21 @@
 package com.niit.CartBackEnd.model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
-@Table
+
+@Table(name="supplier")
 @Entity
 @Component
 public class Supplier {
-
 	@Id
-	@GeneratedValue
-	private int id;
-	private String name;
-	private String address;
+  @GeneratedValue
+	int id;
+	String name;
+	String address;
 	
 	public int getId() {
 		return id;
@@ -36,10 +35,5 @@ public class Supplier {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public void setId(String string) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	
-}
+} 

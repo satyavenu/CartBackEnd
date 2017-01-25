@@ -1,25 +1,24 @@
 package com.niit.CartBackEnd.dao;
 import java.util.List;
-import java.util.function.Supplier;
 
-import com.niit.CartBackEnd.model.User;
+import com.niit.CartBackEnd.model.Supplier;
 
 
 public interface SupplierDAO {
-	public List<User> list();
+	public List<Supplier> list();
 
-	public User get(String id);
+	public Supplier get(String id);
 
 	
 		
-		public boolean delete(com.niit.CartBackEnd.model.Supplier supplier);
+		public boolean delete(Supplier supplier);
 
-		@SuppressWarnings("rawtypes")
-		public Supplier get(int id);
+	
+		public com.niit.CartBackEnd.model.Supplier get(int id);
 
-		public boolean save(com.niit.CartBackEnd.model.Supplier supplier);
+		
 
-		public void saveOrUpdate(com.niit.CartBackEnd.model.Supplier supplier);
+		public boolean saveOrUpdate(Supplier supplier);
 
 		
 	

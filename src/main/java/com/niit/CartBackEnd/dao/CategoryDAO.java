@@ -9,7 +9,7 @@ import com.niit.CartBackEnd.model.Category;
 public interface CategoryDAO {
 	public List<Category> list();
 	
-	public boolean save(Category category);
+	
 	public boolean delete(Category category);
 	public Category get(int id);
 

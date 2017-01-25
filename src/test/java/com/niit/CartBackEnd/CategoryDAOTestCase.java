@@ -12,7 +12,6 @@ import com.niit.CartBackEnd.model.Product;
 
 import junit.framework.Assert;
 
-@SuppressWarnings({ "unused", "deprecation" })
 public class CategoryDAOTestCase {
 	@Autowired
 	static CategoryDAO categoryDAO;
@@ -36,11 +35,10 @@ public class CategoryDAOTestCase {
 
 	@Test
 	public void saveTestCase() {
-		category.setId("101");
-		category.setName("satya");
-		category.setDescription("nothing");
+		category.setName("electronis");
+		category.setDescription("this is electronis");
 
-		Assert.assertEquals("save Test Case", true, categoryDAO.save(category));
+		Assert.assertEquals("save Test Case", true, categoryDAO.saveorupdate(category));
 	}
 
 }

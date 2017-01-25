@@ -28,9 +28,9 @@ public class TestUserDAo {
 		   user=(User)context.getBean("user");
 		   
 	   }
-	   public boolean validate(String id,String password)
+	   public boolean validate(int username,String password)
 	   {
-		   if(userDAO.validate(id, password)==null)
+		   if(userDAO.validate(username, password)==null)
 		   {
 			   System.out.println("User does not exit");
 			   return false;
@@ -45,7 +45,7 @@ public class TestUserDAo {
 	   public static void main(String args[])
 	   {
 		   TestUserDAo t=new TestUserDAo();
-		   t.validate("niit","niit@13");
+		   t.validate(1,"satya");
 	   }
 	
 	

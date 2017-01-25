@@ -1,78 +1,87 @@
 package com.niit.CartBackEnd;
 
+import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.CartBackEnd.dao.UserDAO;
 import com.niit.CartBackEnd.model.User;
 
+import junit.framework.Assert;
 
-
+@SuppressWarnings({ "deprecation", "unused" })
 public class UserDAOTestCase {
 
 	@Autowired
-	 static UserDAO userDAO;
+	 static  UserDAO userDAO;
 	
 	@Autowired
-	static User user;
+	 static User user;
 	
 	@Autowired
-	static AnnotationConfigApplicationContext context;
+	static	AnnotationConfigApplicationContext context;
 	
-	//previously we written constructor
-	//but in junit we need to write a method
 	@BeforeClass
-	public static void  init()
+	public static void init()
 	{
-		context = new AnnotationConfigApplicationContext();
+		context=new AnnotationConfigApplicationContext();
 		context.scan("com.niit.CartBackEnd");
-		
 		context.refresh();
-		 user=(User)context.getBean("user");
-		 userDAO=(UserDAO)context.getBean("userDAOImpl");
-	}
-	/*@Test
-	public void getUserTestCase()
-	{
-		user=userDAO.get("niit");
-		//assert statements
-		Assert.assertNotNull("UserTestCase",user.getName());
 		
+		user=(User)context.getBean("user");
+		userDAO=(UserDAO)context.getBean("userDAOImpl");
 		
 	}
-*/
+	
 	@Test
-	public void validateCredentials()
+	 public void getUserTestCase()
+	 {
+	user=	userDAO.get("satya");
+		Assert.assertEquals("User Test Case","satya",user.getUsername());
+	 } 
+	@Test
+	public void getAlluserTestCase()
 	{
-		user=   userDAO.validate("niit","niit");
-		Assert.assertEquals("Invalid TestCAse",user,user);
-		
+	int size=	userDAO.list().size();
+		Assert.assertEquals("Size Of Table",size, size);
+	}
+	@Test
+	public void  getUserTestCase1()
+	{
+		user=userDAO.get("satya");
+		Assert.assertNotNull("Get User Test Case",user);
 		
 	}
-	
-	public void getAllUserTestCase()
+@Test
+	public void saveTestCase()
 	{
-	
-	int size=userDAO.list().size();
-	
-	Assert.assertEquals("length check",8,size);
+	user.setId("999");
+	user.setUsername("veni");
+	   user.setPassword("veni23");
+	   user.setMobile("9640359607");
+	   user.setRole("user");
+	   user.setContact("hyd");
+	   user.setEmail("satya@gmail.com");
+	 
+	    user.setEnabled(true);
+		
+	Assert.assertEquals("save Test Case",true,userDAO.saveOrUpdate(user));
 	}
 
-
-@Test	
-public void saveTestCase()
+public void validateCredentials()
 {
-	user.setId("1097");
-	user.setName("pallavi");
-	user.setPassword("satya");
-	user.setMobile("8106393169");
-	user.setRole("role_user");
-	user.setContact("hyd");
-	user.setMail("satyaveni@gmail.com");
-	Assert.assertEquals("saveTestCase",true, userDAO.save(user));
-}
+	user=userDAO.validate(1,"satya");
+	Assert.assertNotNull("ValidateCredentials",user);
+	}
+@Test
+public void invalidateCredentials()
+{
+	user=userDAO.validate(2,"niit@123");
+	Assert.assertNull("INValidateCredentials",user);
+	}
+
 }

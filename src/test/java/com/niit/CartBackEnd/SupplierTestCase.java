@@ -12,7 +12,6 @@ import com.niit.CartBackEnd.model.User;
 
 import junit.framework.Assert;
 
-@SuppressWarnings({ "unused", "deprecation" })
 public class SupplierTestCase {
 	@Autowired
 	 static SupplierDAO supplierDAO;
@@ -38,14 +37,15 @@ public class SupplierTestCase {
 @Test
 	public void saveTestCase()
 	{
-		supplier.setId("101");
 		supplier.setName("satya");
 		supplier.setAddress("hyd");
 		
-	Assert.assertEquals("save Test Case",true,supplierDAO.save(supplier));
+	Assert.assertEquals("save Test Case",true,supplierDAO.saveOrUpdate(supplier));
 	}
 
 	
 		
 
 	}
+
+
