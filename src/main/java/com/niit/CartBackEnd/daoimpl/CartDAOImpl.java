@@ -110,7 +110,7 @@ public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 	@Transactional
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public Cart getproduct(int productid) {
-		String hql="from Cart where productid= "+productid;
+		String hql="from Cart where product_id= "+productid;
 		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Cart>listproduct=query.list();

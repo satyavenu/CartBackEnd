@@ -15,8 +15,8 @@ public class Cart {
 	@Id
 	@GeneratedValue
 	private int id;
-	private int productid;
-	private int userid;
+	private int product_id;
+	private int user_id;
 	private String productname;
 	@Column(columnDefinition = "int default 1")
 	private int quantity;
@@ -39,20 +39,22 @@ public class Cart {
 		this.id = id;
 	}
 
-	public int getProductid() {
-		return productid;
+	
+
+	public int getProduct_id() {
+		return product_id;
 	}
 
-	public void setProductid(int productid) {
-		this.productid = productid;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 
-	public int getUserid() {
-		return userid;
+	public int getUser_id() {
+		return user_id;
 	}
- 
-	public void setUserid(int userid) {
-		this.userid = userid;
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getProductname() {

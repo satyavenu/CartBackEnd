@@ -14,15 +14,26 @@ import org.springframework.stereotype.Component;
 public class User {
 	@Id
     @GeneratedValue
-	private String  Id;
+	private int  Id;
 	private String username;
 	private String password;
 	private String mobile;
 	private String email;
 	private String role;
-	private String Contact;
 	private boolean enabled;
-	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public int getId() {
+		return Id;
+	}
+	public void setId(int id) {
+		Id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -53,26 +64,15 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public boolean isEnabled() {
-		return enabled;
+	public void setId(String string) {
+		// TODO Auto-generated method stub
+		
 	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-	public String getContact() {
-		return Contact;
-	}
-	public void setContact(String contact) {
-		Contact = contact;
-	}
-	public String getId() {
-		return Id;
-	}
-	public void setId(String id) {
-		Id = id;
+	public void setContact(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	
 
 
 }

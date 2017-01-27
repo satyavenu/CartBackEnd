@@ -13,6 +13,7 @@ import com.niit.CartBackEnd.model.User;
 
 import junit.framework.Assert;
 
+
 @SuppressWarnings({ "deprecation", "unused" })
 public class UserDAOTestCase {
 
@@ -29,7 +30,7 @@ public class UserDAOTestCase {
 	public static void init()
 	{
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit.CartBackEnd");
+		context.scan("com.niit.scartbackend");
 		context.refresh();
 		
 		user=(User)context.getBean("user");
@@ -40,8 +41,8 @@ public class UserDAOTestCase {
 	@Test
 	 public void getUserTestCase()
 	 {
-	user=	userDAO.get("satya");
-		Assert.assertEquals("User Test Case","satya",user.getUsername());
+	user=	userDAO.get("mukesh");
+		Assert.assertEquals("User Test Case","mukesh",user.getUsername());
 	 } 
 	@Test
 	public void getAlluserTestCase()
@@ -52,26 +53,27 @@ public class UserDAOTestCase {
 	@Test
 	public void  getUserTestCase1()
 	{
-		user=userDAO.get("satya");
+		user=userDAO.get("mukesh");
 		Assert.assertNotNull("Get User Test Case",user);
 		
 	}
 @Test
 	public void saveTestCase()
 	{
-	user.setId("999");
-	user.setUsername("veni");
-	   user.setPassword("veni23");
-	   user.setMobile("9640359607");
-	   user.setRole("user");
-	   user.setContact("hyd");
-	   user.setEmail("satya@gmail.com");
-	 
+	    user.setMobile("8106393169");
+		user.setEmail("satya@gmail.com");
+		user.setPassword("satya");
+	    user.setRole("Admin");
+	    user.setUsername("satya");
 	    user.setEnabled(true);
 		
 	Assert.assertEquals("save Test Case",true,userDAO.saveOrUpdate(user));
 	}
 
+		
+		
+	
+@Test
 public void validateCredentials()
 {
 	user=userDAO.validate(1,"satya");

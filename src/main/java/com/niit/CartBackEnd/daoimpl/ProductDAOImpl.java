@@ -84,7 +84,7 @@ public class ProductDAOImpl implements ProductDAO {
 		log.debug("starting of the method get");
 		log.info("trying to get product based on id:" + id);
 		String hql = "from Product where id= " + "'" + id + "'";
-		log.info("the hsql query is :" + hql);
+		log.info("the hql query is :" + hql);
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Product> list = query.list();
 
