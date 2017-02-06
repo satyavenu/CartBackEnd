@@ -5,13 +5,14 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.CartBackEnd.dao.CheckoutDAO;
 import com.niit.CartBackEnd.model.Checkout;
 
 
-
+@Repository
 public class CheckoutDAOImpl implements CheckoutDAO {
 	@Autowired
 	private SessionFactory sessionFactory;

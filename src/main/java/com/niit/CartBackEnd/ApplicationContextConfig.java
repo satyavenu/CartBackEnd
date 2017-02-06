@@ -15,16 +15,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.CartBackEnd.dao.CartDAO;
 import com.niit.CartBackEnd.dao.CategoryDAO;
+import com.niit.CartBackEnd.dao.CheckoutDAO;
 import com.niit.CartBackEnd.dao.ProductDAO;
 import com.niit.CartBackEnd.dao.SupplierDAO;
 import com.niit.CartBackEnd.dao.UserDAO;
 import com.niit.CartBackEnd.daoimpl.CartDAOImpl;
 import com.niit.CartBackEnd.daoimpl.CategoryDAOImpl;
+import com.niit.CartBackEnd.daoimpl.CheckoutDAOImpl;
 import com.niit.CartBackEnd.daoimpl.ProductDAOImpl;
 import com.niit.CartBackEnd.daoimpl.SupplierDAOImpl;
 import com.niit.CartBackEnd.daoimpl.UserDAOImpl;
 import com.niit.CartBackEnd.model.Cart;
 import com.niit.CartBackEnd.model.Category;
+import com.niit.CartBackEnd.model.Checkout;
 import com.niit.CartBackEnd.model.Product;
 import com.niit.CartBackEnd.model.Supplier;
 import com.niit.CartBackEnd.model.User;
@@ -72,6 +75,7 @@ public class ApplicationContextConfig {
 		    sessionBuilder.addAnnotatedClasses(Product.class);
 		    sessionBuilder.addAnnotatedClasses(Category.class);
 		    sessionBuilder.addAnnotatedClasses(Cart.class);
+		    sessionBuilder.addAnnotatedClasses(Checkout.class);
 			System.out.println("Session");
 			
 			return sessionBuilder.buildSessionFactory();
@@ -112,6 +116,11 @@ public class ApplicationContextConfig {
 		@Bean(name = "cartDAO")
 		public CartDAO getcartDao(SessionFactory sessionFactory){
 					return  new CartDAOImpl(sessionFactory);
+		}
+		@Autowired
+		@Bean(name = "CheckoutDAO")
+		public CheckoutDAO getcheckoutDao(SessionFactory sessionFactory){
+					return  new CheckoutDAOImpl(sessionFactory);
 		}
 			
 }
